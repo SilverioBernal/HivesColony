@@ -1,0 +1,29 @@
+<div class="homeDiv">
+  <br>
+  <div class="layout-main-content">
+    <div class="card card-w-title">
+      <h1>Customers</h1>
+      <p-dataTable [value]="customers"
+          [paginator]="true" [rows]="10" [responsive]="true">
+          <p-header>List of Customers</p-header>
+          <p-column field="firstName" header="First name" [sortable]="true" [filter]="true" filterMatchMode="contains" filterPlaceholder="Search..."></p-column>
+          <p-column field="lastname" header="Last name" [sortable]="true" [filter]="true" filterMatchMode="contains" filterPlaceholder="Search..."></p-column>
+          <p-column field="customerEmail" header="E-mail" [sortable]="true" [filter]="true" filterMatchMode="contains" filterPlaceholder="Search..."></p-column>
+          <p-column field="phoneNumber" header="Phone" [sortable]="true"></p-column>
+          <p-column field="streetAddress" header="Address" [sortable]="true"></p-column>
+          <p-column field="zipCode" header="Zipcode" [sortable]="true" [filter]="true" filterMatchMode="contains" filterPlaceholder="Search..."></p-column>
+          <p-column styleClass="col-button" header="Actions">
+              <ng-template let-customer="rowData" pTemplate="body">
+                  <button type="button" pButton icon="ui-icon-edit" class="blue-gray-btn flat" (click)="edit(customer.id)" ></button>
+                  <span>&nbsp;|&nbsp;</span>
+                  <button type="button" pButton icon="ui-icon-delete" class="red-btn flat" (click)="delete(customer.id)" ></button>
+              </ng-template>
+          </p-column>
+      </p-dataTable>
+      <br>
+      <div class="ui-helper-clearfix" style="width:100%">
+        <button type="button" pButton icon="ui-icon-contacts" class="teal-btn flat" style="float:left" (click)="newCustomer()" label="New customer"></button>
+      </div>
+    </div>
+  </div>
+</div>

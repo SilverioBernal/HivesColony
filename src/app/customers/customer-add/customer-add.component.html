@@ -1,0 +1,66 @@
+<div class="homeDiv">
+  <br>
+  <div class="layout-main-content">
+    <div class="card card-w-title">
+      <h1>Add new customer</h1>
+      <form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <div class="ui-g form-group">
+          <div class="ui-g-12 ui-md-4" [ngClass]="aplicaCssErro('customerEmail')">
+            <span class="md-inputfield">
+              <input type="email" pInputText formControlName="customerEmail" id="customerEmail" required email>
+              <app-control-error-campo [mostrarError]="verificaValidTouched('customerEmail')" msgError= "Invalid email"></app-control-error-campo>
+              <app-control-error-campo [mostrarError]="verificaEmailInvalido()" msgError= "Invalid email"></app-control-error-campo>
+              <label for="customerEmail">Email</label>
+            </span>
+          </div>
+          <div class="ui-g-12 ui-md-4" [ngClass]="aplicaCssErro('firstName')">
+            <span class="md-inputfield">
+              <input type="text" pInputText formControlName="firstName" id="firstName" required>
+              <app-control-error-campo [mostrarError]="verificaValidTouched('firstName')" msgError= "Invalid first name"></app-control-error-campo>
+              <label for="firstName">First name</label>
+            </span>
+          </div>
+          <div class="ui-g-12 ui-md-4" [ngClass]="aplicaCssErro('lastname')">
+            <span class="md-inputfield">
+              <input type="text" pInputText formControlName="lastname" id="lastname" required>
+              <app-control-error-campo [mostrarError]="verificaValidTouched('lastname')" msgError= "Invalid last name"></app-control-error-campo>
+              <label for="lastname">Last name</label>
+            </span>
+          </div>
+          <div class="ui-g-12 ui-md-4" [ngClass]="aplicaCssErro('phoneNumber')">
+            <span class="md-inputfield">
+              <input type="tel" pInputText formControlName="phoneNumber" id="phoneNumber" required>
+              <app-control-error-campo [mostrarError]="verificaValidTouched('phoneNumber')" msgError= "Invalid phone"></app-control-error-campo>
+              <label for="phoneNumber">Phone</label>
+            </span>
+          </div>
+          <div class="ui-g-12 ui-md-4">
+            <span class="md-inputfield">
+              <input type="text" pInputText formControlName="streetAddress" id="streetAddress">
+              <label for="streetAddress">Address</label>
+            </span>
+          </div>
+          <div class="ui-g-12 ui-md-2">
+            <span class="md-inputfield">
+              <input type="text" pInputText formControlName="zipCode" id="zipCode">
+              <label for="zipCode">Zipcode</label>
+            </span>
+          </div>
+          <div class="ui-g-12 ui-md-2">
+            <span class="md-inputfield">
+              <p-calendar [style]="{'width':'100%'}" formControlName="birthDate" id="birthDate"></p-calendar>
+              <label for="zipCode">Birthday (M/D/Y)</label>
+            </span>
+          </div>
+        </div>
+        <div class="ui-g form-group">
+          <div class="ui-g-12 ui-md-6">
+            <button pButton type="submit" label="Save" style="margin-bottom:10px;width:auto" icon="ui-icon-save"></button>
+            <span>&nbsp;&nbsp;|&nbsp;&nbsp; </span>
+            <button pButton type="button" label="Cancel" style="margin-bottom:10px;width:auto" (click)="cancel()" class="blue-grey-btn" icon="ui-icon-cancel"></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

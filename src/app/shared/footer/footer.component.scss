@@ -1,0 +1,18 @@
+.footerbar {
+  position: fixed;
+  height: 30px;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding-top: 7px;
+  background-color: #2f4050;
+  opacity: 0.7;
+  margin-left: -11px;
+  > span {
+    color: white;
+    > a {
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+}
